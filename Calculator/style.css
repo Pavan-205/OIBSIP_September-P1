@@ -1,0 +1,320 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    transition: all 0.5s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #f2f2f2;
+    --second-bg-color: #c5ccd1;
+    --text-color: black;
+    --main-color: #00abf0;
+    --color1: rgb(99, 215, 32);
+    --color2: red;
+}
+
+.dark-mode {
+    --bg-color: #081b29;
+    --second-bg-color: #112e42;
+    --text-color: #ededed;
+    --color1: rgb(99, 215, 32);
+    --color2: red;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+.theme-icon {
+    top: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2.4rem;
+    color: var(--text-color);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.theme-icon .active {
+    color: #333;
+}
+
+.theme-icon .active::before {
+    background-color: var(--bg-color);
+}
+
+.theme-icon::before {
+    content: '';
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.calculator {
+    position: relative;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #000;
+}
+
+
+.calculator .display {
+    min-height: 200px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: var(--text-color);
+    text-align: right;
+    flex: 1 1 0%;
+}
+
+.calculator .display .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+}
+
+.calculator .display .input {
+    width: 100%;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.calculator .display .output {
+    font-size: 3rem;
+    font-weight: 700;
+    width: 100%;
+    white-space: nowrap;
+}
+
+
+button {
+    height: 60px;
+    width: 60px;
+    border: 0;
+    border-radius: 30px;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.calculator {
+    background-color: var(--bg-color)
+}
+
+.calculator #display {
+    color: var(--text-color);
+}
+
+.calculator button#clear, button#backspace {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color2);
+    border: .2rem solid var(--main-color);
+    border-radius: .8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+  }
+  
+.calculator button#clear:hover {
+    color: var(--main-color);
+    transform: scale(1.1);
+}
+
+.calculator button#clear::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.calculator button#clear:hover::before {
+    width: 100%;
+}
+
+.calculator button#backspace:hover {
+    color: var(--main-color);
+    transform: scale(1.1);
+}
+
+.calculator button#backspace::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.calculator button#backspace:hover::before {
+    width: 100%;
+}
+
+.calculator button.btn-number {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.calculator button.btn-number:hover {
+    color: var(--main-color);
+    transform: scale(1.1);
+}
+
+.calculator button.btn-number::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.calculator button.btn-number:hover::before {
+    width: 100%;
+}
+
+.calculator button.btn-operator {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--main-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+  }
+
+  
+.calculator button.btn-operator:hover {
+    color: var(--bg-color);
+    transform: scale(1.1);
+}
+
+.calculator button.btn-operator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--main-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.calculator button.btn-operator:hover::before {
+    width: 100%;
+}
+  
+.calculator button.btn-equal {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color1);
+    border: .2rem solid var(--main-color);
+    height: 130px;
+    width: 60px;
+    margin: 5px;
+    border-radius: .8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.calculator button.btn-equal:hover {
+    color: var(--main-color);
+    transform: scale(1.1);
+}
+
+.calculator button.btn-equal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.calculator button.btn-equal:hover::before {
+    width: 100%;
+}
